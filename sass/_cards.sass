@@ -1,0 +1,36 @@
+.card-container 
+  display: flex
+  gap: 20px
+
+
+.card 
+  width: $card-width
+  height: $card-height
+  perspective: 1000px
+  position: relative
+  cursor: pointer
+
+  &:hover .card-front 
+    transform: rotateY(180deg)
+  
+
+  &:hover .card-back 
+    transform: rotateY(0)
+  
+
+  .card-front 
+    @include card-side($primary-color)
+    transform: rotateY(0)
+  
+
+  .card-back 
+    @include card-side($secondary-color)
+    transform: rotateY(180deg)
+  
+
+  // Variación extendida (usando @extend)
+  &.card-accent 
+    .card-front 
+      @extend .card-front
+      background: $accent-color
+  
